@@ -1,0 +1,10 @@
+<div class="card" style="width: 40rem;">
+  <div class="card-header"># Order <%= @order.id %></div>
+  <div class="card-body">
+    <h3><%= @order.activity.title %></h3>
+    <h5>Activity Owner: <%= @order.activity.owner_name %></h5>
+    <%= @order.activity.date %><br/><br/>
+    <%= @order.quantity %> Tickets<br/>
+    Total price: <%= @order.activity.ticket_cost * @order.quantity %>$
+  </div>
+</div>

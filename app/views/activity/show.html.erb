@@ -1,0 +1,24 @@
+<div class="card-deck w-90 p-2">
+  <div class="card">
+    <div class="card-header">Activity Info</div>
+    <div class="card-body">
+      <h3 class="card-title"><%= @activity.title %></h3>
+      <h5 class="card-title">Owner: <%= @activity.owner_name %></h5>
+      <p class="card-text"><%= @activity.description %></p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">Order Tickets</div>
+    <div class="card-body">
+      <h5><%= @activity.date %></h5>
+      <%= @activity.ticket_cost %>$ per ticket<br/><br/>
+      <%= form_for [@activity, @order] do |f| %>
+        How many tickets would you like?<br/>
+        <%= f.text_field :quantity, type: :number %><br/><br/>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :activity_id, value: @activity.id %>
+        <%= f.submit 'Order!', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>

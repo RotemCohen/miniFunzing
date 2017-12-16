@@ -1,0 +1,15 @@
+<% @activities.each_slice(3) do |activities| %>
+  <div class="card-deck w-90 p-3">
+    <% activities.each do |activity| %>
+      <div class="card">
+        <div class="card-header">
+          <%= link_to activity.title, activity_path(activity)  %>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><%= activity.date %></li>
+          <li class="list-group-item"><%= activity.ticket_cost %>$ per ticket</li>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+<% end %>
